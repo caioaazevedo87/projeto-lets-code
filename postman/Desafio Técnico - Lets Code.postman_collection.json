@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "22ce20b1-b670-42da-9004-ec7a8574b94e",
+		"name": "Desafio Técnico - Lets Code",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Acesso",
+			"item": [
+				{
+					"name": "Login usuario1",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "senha1",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "usuario1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/access/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"access",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login usuario2",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "senha2",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "usuario2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/access/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"access",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/access/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"access",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chamada IMDB Local",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/imdb?movieTitle=Independence Day",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"imdb"
+					],
+					"query": [
+						{
+							"key": "movieTitle",
+							"value": "Independence Day"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Batalha IMBD Local",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movieTitle1\": \"Men in Black\",\r\n    \"movieTitle2\": \"Home Alone\",\r\n    \"chooseWinner1Or2\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/imdb/top-trumps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"imdb",
+						"top-trumps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
