@@ -32,13 +32,9 @@ public class ImbdController {
     public String topTrumps(@RequestBody @Valid TopTrumpsRequest topTrumpsRequest) {
         ImdbResponse movie1 = imdbClient.getMovie(getImdbParametersRequest().getI(), getImdbParametersRequest().getApikey(), topTrumpsRequest.getMovieTitle1());
         ImdbResponse movie2 = imdbClient.getMovie(getImdbParametersRequest().getI(), getImdbParametersRequest().getApikey(), topTrumpsRequest.getMovieTitle2());
-        Short winningMovieChosen = topTrumpsRequest.getChooseWinner1Or2();
-        if ( imdbService.doTopTrumps(movie1, movie2, winningMovieChosen) ) {
-            return "Marcou 1 ponto!";
-        } else {
-            return "Respota errada!";
-        }
+        return imdbService.getTopTrumpsResult(topTrumpsRequest, movie1, movie2);
     }
+
 
     private ImdbParametersRequest getImdbParametersRequest() {
         return imdbService.getImdbParametersRequest();
